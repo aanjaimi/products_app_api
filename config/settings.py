@@ -61,7 +61,8 @@ MIDDLEWARE = [
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
-    os.getenv("FRONTEND_ORIGIN_URL")
+    os.getenv("FRONTEND_ORIGIN_URL"),
+    'https://products-app-vert.vercel.app'
 ]
 
 REST_FRAMEWORK = {
