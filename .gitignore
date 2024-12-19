@@ -1,19 +1,11 @@
 # Backend
-backend/**/__pycache__/
-backend/*.pyc
-backend/.env
-backend/media/
-backend/staticfiles/
-backend/venv/
-backend/.pytest_cache/
-
-# Frontend
-frontend/node_modules/
-frontend/.next/
-frontend/.env.local
-frontend/out/
-frontend/build/
-frontend/.vercel/
+**/__pycache__/
+*.pyc
+.env
+media/
+staticfiles/
+venv/
+.pytest_cache/
 
 # IDE
 .vscode/
@@ -28,4 +20,3 @@ frontend/.vercel/
 # System
 .DS_Store
 
-venv/
