@@ -9,6 +9,7 @@ from .serializers import UserSerializer
 
 class RegisterAPI(APIView):
     def post(self, request):
+        print('DATA: ', request.data)
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
@@ -20,6 +21,9 @@ class LoginAPI(APIView):
     def post(self, request):
         email = request.data.get("email")
         password = request.data.get("password")
+
+        print('EMAIL: ', email)
+        print('PASSWORD: ', password)
 
         if email is None or password is None:
             return Response(
