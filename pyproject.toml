@@ -1,0 +1,22 @@
+[tool.black]
+line-length = 100  # Maximum line length
+target-version = ['py38', 'py39', 'py310']  # Target Python versions
+include = '\.pyi?$'  # Include Python interface files
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | dist
+    | build
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
