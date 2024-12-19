@@ -61,7 +61,7 @@ MIDDLEWARE = [
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    os.getenv("FRONTEND_ORIGIN_URL")
 ]
 
 REST_FRAMEWORK = {
