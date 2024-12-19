@@ -11,10 +11,23 @@ class RegisterAPI(APIView):
     def post(self, request):
         print('DATA: ', request.data)
         serializer = UserSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_406_NOT_ACCEPTABLE)
+        try:
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            else:
+                print('Validation errors:', serializer.errors)  # Debug print
+                return Response({
+                    'status': 'error',
+                    'message': 'Validation failed',
+                    'errors': serializer.errors
+                }, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            print('Exception:', str(e))  # Debug print
+            return Response({
+                'status': 'error',
+                'message': str(e)
+            }, status=status.HTTP_400_BAD_REQUEST)
 
 
 class LoginAPI(APIView):
